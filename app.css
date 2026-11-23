@@ -985,3 +985,4 @@ body.secure #app { user-select: none; -webkit-user-select: none; }
 /* 2026-11-24: 문제 칸은 예전의 90%, 보기는 6개 (2칸 × 3줄) */
 .q-card.math-card { height: calc(clamp(140px, 27dvh, 250px) * .9); }
 .options.math-opts { grid-template-rows: repeat(3, 1fr); max-height: 470px; }
+.math-card .q-card-art { right: 12px; top: 10px; bottom: auto; width: 34px; height: 34px; }

@@ -670,16 +670,12 @@ function fitText(box, sel, max, min) {
   }
   set(Math.floor(best * 10) / 10);
 }
-/** 식(27 + 48 = ?)은 한 줄로 크게. 그림은 칸 오른쪽 아래에 작게, 글자와 겹치면 숨김 */
+/** 식(27 + 48 = ?)은 한 줄로 크게. 그림은 칸 오른쪽 위에 작게 (식과 겹치지 않음) */
 function layoutQuestion() {
-  const main = $app.querySelector('#q-main'), artEl = $app.querySelector('#q-art'), card = $app.querySelector('#q-card');
+  const main = $app.querySelector('#q-main'), card = $app.querySelector('#q-card');
   if (!main || !card) return;
   const h = card.clientHeight;
   fitText(main, '.q-text', Math.min(64, Math.max(30, h * 0.32)), 20);
-  if (artEl) {
-    const t = main.querySelector('.q-text')?.getBoundingClientRect(), a = artEl.getBoundingClientRect();
-    artEl.hidden = !!(t && a.width && t.right > a.left - 4 && t.bottom > a.top - 4);
-  }
 }
 function showAnswer({ correctIndex, chosenIndex, isCorrect, timeout, title, sub, explanation }) {
   [...$app.querySelectorAll('.option')].forEach((b, i) => {
