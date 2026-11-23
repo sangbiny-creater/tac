@@ -947,7 +947,7 @@ body.secure #app { user-select: none; -webkit-user-select: none; }
 .q-text.math { flex: 1 1 auto; display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; white-space: nowrap; gap: .28em; font-size: 48px; line-height: 1.1; font-weight: 900; letter-spacing: -1px; font-variant-numeric: tabular-nums; text-align: center; padding-bottom: 6px; }
 .q-text.math .sym { color: #2E9A5E; }
 .q-text.math .qm { color: #E8901A; }
-/* 보기: 숫자 크게, 번호(1~4)는 작게 왼쪽 위 — PC 는 키보드 1~4 로도 고름 */
+/* 보기: 숫자 크게, 번호(1~6)는 작게 왼쪽 위 — PC 는 키보드 1~6 로도 고름 */
 .option.num-opt { font-size: clamp(26px, 4.6dvh, 38px); font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: -.5px; }
 .option.num-opt.long { font-size: clamp(22px, 3.8dvh, 32px); }
 .option.num-opt small { position: absolute; left: 12px; top: 8px; font-size: 12px; font-weight: 800; color: #B6C2BB; letter-spacing: 0; }
@@ -981,3 +981,7 @@ body.secure #app { user-select: none; -webkit-user-select: none; }
 .lv-ck i { width: calc(17 * var(--u)); height: calc(17 * var(--u)); border-radius: calc(5 * var(--u)); }
 .lv-ck em { font-size: calc(11 * var(--u)); }
 .rec-row .s .lv-chip { margin: 0 6px 0 0; }
+
+/* 2026-11-24: 문제 칸은 예전의 90%, 보기는 6개 (2칸 × 3줄) */
+.q-card.math-card { height: calc(clamp(140px, 27dvh, 250px) * .9); }
+.options.math-opts { grid-template-rows: repeat(3, 1fr); max-height: 470px; }

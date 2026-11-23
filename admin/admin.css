@@ -229,3 +229,7 @@ details.imp summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
 .kpi small { color: var(--ink-3); font-size: 13px; }
 .kpi b { font-size: 30px; line-height: 1.1; }
 .kpi .muted { font-size: 12px; }
+
+/* 타임어택 연산: 한국사 백오피스(초록)와 헷갈리지 않게 파랑 */
+:root { --green: #2F6FB5; --green-d: #23578F; --green-soft: #E3EEFA; --mint: #F0F5FB; --bg: #F4F7FB; }
+.login-card img, .brand img { border-radius: 14px; }

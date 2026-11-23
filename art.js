@@ -1,7 +1,6 @@
 // 그림(아트) 자리 목록 — GPT 로 만든 그림을 web/assets/gpt/ 에 아래 파일 이름으로 넣으면 바로 바뀜.
 //  파일이 아직 없으면 두 번째 값(임시 그림 또는 아이콘)으로 자동 대체된다.
 //  프롬프트: docs/GPT_IMAGE_PROMPTS.md · 원본(크로마키)은 art-src/ 에 넣고 npm run art 로 잘라서 여기로 옴
-//  ⚠ 지금 assets/gpt/ 의 그림은 한국사(임금·궁궐)에서 가져온 임시 그림 — 연산 그림이 오면 같은 이름으로 덮어씀
 const svgData = (svg) => 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
 
 // 임시 아이콘 (GPT 아이콘이 들어오기 전까지)
@@ -14,18 +13,16 @@ const I = {
 };
 
 export const ART = {
-  logo: ['ui_logo.png', 'hunmin.png'],
-  homeScene: ['bg_home_scene.png', 'palace.png'],
-  mascotHero: ['mascot_hero.png', 'king.png'],
-  mascotBook: ['mascot_book.png', 'king_book.png'],
-  mascotCorrect: ['mascot_correct.png', 'king.png'],
-  mascotWrong: ['mascot_wrong.png', 'king_write.png'],
-  mascotTimeout: ['mascot_timeout.png', 'king_book.png'],
-  mascotWrite: ['mascot_write.png', 'king_write.png'],
-  mascotFinish: ['mascot_finish.png', 'king.png'],
-  talkTerms: ['mascot_talk_terms.png', 'king.png'],
-  talkNick: ['mascot_talk_nick.png', 'king.png'],
-  talkReady: ['mascot_talk_ready.png', 'king_book.png'],
+  logo: ['ui_logo.png', null],
+  homeScene: ['bg_home_scene.png', null],
+  mascotHero: ['mascot_hero.png', null],
+  mascotCorrect: ['mascot_correct.png', null],
+  mascotWrong: ['mascot_wrong.png', null],
+  mascotTimeout: ['mascot_timeout.png', null],
+  mascotFinish: ['mascot_finish.png', null],
+  talkTerms: ['mascot_talk_terms.png', null],
+  talkNick: ['mascot_talk_nick.png', null],
+  talkReady: ['mascot_talk_ready.png', null],
   iconTrophy: ['icon_trophy.png', svgData(I.trophy)],
   iconChart: ['icon_chart.png', svgData(I.chart)],
   iconLearn: ['icon_learn.png', svgData(I.learn)],
@@ -33,14 +30,12 @@ export const ART = {
   tileTrophy: ['tile_trophy.png', svgData(I.trophy)],
   tileChart: ['tile_chart.png', svgData(I.chart)],
   tileStar: ['tile_star.png', svgData(I.star)],
-  actSubmit: ['act_submit.png', svgData('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2A7D52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/><path d="M4 20h16"/></svg>')],
-  actReport: ['act_report.png', svgData('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2A7D52" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg>')],
-  crown: ['ui_crown.png', 'crown.png'],
+  crown: ['ui_crown.png', null],
   medal2: ['ui_medal_2.png', svgData(I.medal(2, '#A8B4BD'))],
   medal3: ['ui_medal_3.png', svgData(I.medal(3, '#F29A4A'))],
-  rankingScene: ['bg_ranking.png', 'palace.png'],
-  resultDeco: ['ui_result_deco.png', 'cheomseongdae.png'],
-  emptyState: ['ui_empty.png', 'turtleship.png'],
+  rankingScene: ['bg_ranking.png', null],
+  resultDeco: ['ui_result_deco.png', null],
+  emptyState: ['ui_empty.png', null],
 };
 
 // 연산별 그림 (문제 카드 오른쪽 아래) — GPT 그림(icons_op_sheet → op_*.png)이 오기 전에는 그림 없이 둠
