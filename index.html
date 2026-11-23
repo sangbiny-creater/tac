@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="google-adsense-account" content="ca-pub-8824642278407065" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#F0F7F2" />
+  <title>타임어택 연산</title>
+  <meta name="description" content="덧셈·뺄셈·곱셈·나눗셈 20문제, 문제당 20초. 빠르고 정확하게, 높은 자리일수록 점수가 크게! 나를 이겨 볼래?" />
+  <!-- 링크 미리보기 (카카오톡 · 문자 등) — 그림(assets/og.png)은 GPT 그림이 오면 tools/og_image.py 로 다시 만듦. 지금은 한국사 카드를 임시로 씀 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="타임어택 연산" />
+  <meta property="og:title" content="타임어택 연산 — 나를 이겨 볼래?" />
+  <meta property="og:description" content="사칙연산 20문제, 문제당 20초. 높은 자리일수록 점수가 크게!" />
+  <meta property="og:url" content="https://tac.brown-crab.com/" />
+  <meta property="og:image" content="https://tac.brown-crab.com/assets/og.png?v=2" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/gpt/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/gpt/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="stage">
+    <main id="app" aria-live="polite"></main>
+    <nav id="tabbar" hidden>
+      <a href="#/" data-tab="home"><i class="tab-ic"><img class="off" src="assets/gpt/tab_home_off.png" alt="" draggable="false"><img class="on" src="assets/gpt/tab_home_on.png" alt="" draggable="false"></i><span>홈</span></a>
+      <a href="#/ranking" data-tab="ranking"><i class="tab-ic"><img class="off" src="assets/gpt/tab_crown_off.png" alt="" draggable="false"><img class="on" src="assets/gpt/tab_crown_on.png" alt="" draggable="false"></i><span>랭킹</span></a>
+      <a href="#/results" data-tab="results"><i class="tab-ic"><img class="off" src="assets/gpt/tab_bars_off.png" alt="" draggable="false"><img class="on" src="assets/gpt/tab_bars_on.png" alt="" draggable="false"></i><span>결과</span></a>
+    </nav>
+  </div>
+  <div id="shield" hidden>
+    <div class="shield-inner">
+      <div class="shield-icon">⏱</div>
+      <strong>화면이 가려졌어요</strong>
+      <p>문제를 푸는 동안 화면을 벗어나면 문제를 가립니다.<br />시간은 계속 흐르고 있어요!</p>
+      <button type="button" class="btn-primary" id="shield-back">문제로 돌아가기</button>
+    </div>
+  </div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status"></div>
+  <script src="lib/ads_config.js"></script>
+  <script src="lib/native.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
