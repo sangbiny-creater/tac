@@ -633,9 +633,9 @@ async function viewHome() {
 }
 const setupText = (setup) => `${setup.ops.map((o) => CONFIG.series.opLabels[o]).join('·')} · ${CONFIG.series.levelLabels[setup.level]}${setup.level > 1 ? '까지' : ''}`;
 
-// ---------- 문제 화면 (맨 위 광고 · 문제 카드 · 보기 6개 · 하단 버튼) ----------
-//  6지선다: 숫자 키패드보다 한 번 누르기라 빠르고, 한국사와 같은 화면·점수 흐름을 그대로 씀.
-//  보기는 작은 수부터 차례로 → 빨리 찾을 수 있고, 위치로는 정답을 알 수 없음. 오답은 끝자리가 같은 수를 섞어서 끝자리만 보고 못 고름.
+// ---------- 문제 화면 (맨 위 광고 · 문제 카드 · 보기 9개(3×3) · 하단 버튼) ----------
+//  9칸 고르기: 숫자 키패드보다 한 번 누르기라 빠르고, 한국사와 같은 화면·점수 흐름을 그대로 씀.
+//  보기는 작은 수부터 차례로 → 빨리 찾을 수 있음. 정답의 순위·끝자리는 서버가 고르게 섞어서 위치나 끝자리만 보고는 못 고름.
 function quizScreenHtml({ headLeft, headCenter, headRight, q, progress, watermark = false, footHtml = '' }) {
   const S = CONFIG.series;
   const len = Math.max(...q.options.map((o) => String(o).length));
@@ -653,7 +653,7 @@ function quizScreenHtml({ headLeft, headCenter, headRight, q, progress, watermar
         </div>
       </section>
       <section class="options math-opts" id="opts">
-        ${q.options.map((o, i) => `<button class="option num-opt ${len >= 5 ? 'long' : ''}" data-i="${i}"><small>${i + 1}</small>${fmt(o)}</button>`).join('')}
+        ${q.options.map((o, i) => `<button class="option num-opt ${len >= 4 ? 'long' : ''}" data-i="${i}"><small>${i + 1}</small>${fmt(o)}</button>`).join('')}
       </section>
       <div class="q-foot" id="foot">${footHtml}</div>
     </div>`;
@@ -781,10 +781,10 @@ function playLoop(runId, cur) {
       <div class="row"><button class="btn-ghost" id="stay">계속 풀기</button><button class="btn-primary" id="go" style="height:48px;font-size:16px">나가기</button></div>`,
     (m, close) => { m.querySelector('#stay').onclick = close; m.querySelector('#go').onclick = () => { close(); location.hash = '#/'; }; });
   };
-  // 키보드(PC): 1~6 = 보기, Enter/Space = 다음 문제
+  // 키보드(PC): 1~9 = 보기, Enter/Space = 다음 문제
   onKey = (e) => {
     if (document.querySelector('#modal-root .modal-back')) return;
-    if (/^[1-6]$/.test(e.key)) { const b = $app.querySelector(`.option[data-i="${Number(e.key) - 1}"]`); if (b && !b.disabled) b.click(); }
+    if (/^[1-9]$/.test(e.key)) { const b = $app.querySelector(`.option[data-i="${Number(e.key) - 1}"]`); if (b && !b.disabled) b.click(); }
     else if (e.key === 'Enter' || e.key === ' ') { const n = $app.querySelector('#next'); if (n && !n.disabled) { e.preventDefault(); n.click(); } }
   };
   document.addEventListener('keydown', onKey);
