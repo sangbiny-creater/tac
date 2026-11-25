@@ -985,10 +985,28 @@ body.secure #app { user-select: none; -webkit-user-select: none; }
 /* 2026-11-24: 문제 칸은 예전의 90%, 보기는 6개 (2칸 × 3줄) */
 .q-card.math-card { height: calc(clamp(140px, 27dvh, 250px) * .9); }
 .options.math-opts { grid-template-rows: repeat(3, 1fr); max-height: 470px; }
-.math-card .q-card-art { right: 12px; top: 10px; bottom: auto; width: 34px; height: 34px; }
 
 /* 2026-11-24: 보기 9칸 (3 × 3) */
 .options.math-opts { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 8px; }
 .option.num-opt { padding: 6px 4px; border-radius: 18px; font-size: clamp(24px, 4.2dvh, 34px); }
 .option.num-opt.long { font-size: clamp(21px, 3.6dvh, 28px); }
 .option.num-opt small { left: 9px; top: 5px; font-size: 11px; }
+
+/* ===== 2026-11-25: 홈 버튼 8개 배치 (사용자 시안) — 문제 풀기를 위로, 아래에 연산 4칸 · 자리 수 3칸을 같은 높이로 =====
+   시안 치수(세로 1026 기준): 두 줄 모두 높이 98, 문제 풀기와 간격 8, 두 줄 간격 20, 아래 바와 간격 10. 안내 글 줄은 시안에 없어서 숨김 */
+.home .play-sub { display: none; }
+.screen.home { padding-bottom: calc(8 * var(--u)); }
+.home .play-btn.play-img { margin-top: -8px; flex: none; }
+.home .op-toggles { margin-top: calc(7 * var(--u)); gap: calc(8 * var(--u)); }
+.home .op-tg { height: calc(80 * var(--u)); }
+.home .op-tg .op-ic { width: calc(36 * var(--u)); height: calc(36 * var(--u)); }
+.home .op-tg span { font-size: calc(18 * var(--u)); }
+.home .lv-checks { margin-top: calc(16 * var(--u)); gap: calc(8 * var(--u)); }
+.home .lv-ck { height: calc(80 * var(--u)); display: grid; grid-template-columns: auto auto; align-content: center; justify-content: center; align-items: center; gap: calc(5 * var(--u)) calc(6 * var(--u)); border-radius: calc(16 * var(--u)); border-width: calc(2.4 * var(--u)); background: linear-gradient(180deg, #FFFFFB, #F6F4EC); box-shadow: 0 calc(3 * var(--u)) 0 #D5DED7; font-size: calc(18 * var(--u)); }
+.home .lv-ck.on { background: linear-gradient(180deg, #FFFFFB, #FFFCF2); box-shadow: 0 calc(3 * var(--u)) 0 #B7DCBF; }
+.home .lv-ck i { width: calc(21 * var(--u)); height: calc(21 * var(--u)); border-radius: calc(6 * var(--u)); }
+.home .lv-ck em { grid-column: 1 / -1; text-align: center; font-size: calc(17 * var(--u)); line-height: 1; }
+/* 그림 영역: 성과 캐릭터를 문제 풀기 바로 위에 나란히 */
+.home .hero { min-height: 0; }
+.home .hero-mascot { max-height: 80%; bottom: 0; }
+.home .hero-scene { bottom: 10px; max-height: 48%; width: 52%; left: 4px; }

@@ -38,9 +38,6 @@ export const ART = {
   emptyState: ['ui_empty.png', null],
 };
 
-// 연산별 그림 (문제 카드 오른쪽 아래) — GPT 그림(icons_op_sheet → op_*.png)이 오기 전에는 그림 없이 둠
-export const OP_ART = { add: 'op_add.png', sub: 'op_sub.png', mul: 'op_mul.png', div: 'op_div.png' };
-
 const AVATAR_COUNT = 8;
 const AVATAR_COLORS = ['#2E7D5B', '#FF9E3D', '#4F8EDC', '#B76BD9', '#E5484D', '#1FA6A0', '#8B6F47', '#5B6CF0'];
 const hash = (s) => [...(s || '?')].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
@@ -52,9 +49,6 @@ function src(file) { return !file ? '' : file.startsWith('data:') ? file : file.
 export function art(key, { cls = '', alt = '' } = {}) {
   const [main, fb] = ART[key] || [null, null];
   return imgTag(main, fb, cls, alt);
-}
-export function opArt(op, { cls = '', alt = '' } = {}) {
-  return imgTag(OP_ART[op] || null, null, cls, alt);
 }
 function imgTag(main, fb, cls, alt) {
   const primary = main ? `assets/gpt/${main}` : src(fb);

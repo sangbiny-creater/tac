@@ -1,6 +1,6 @@
 // 타임어택 연산 — 플레이어 웹앱 (프레임워크 없는 SPA) · 타임어택 한국사(takh) 구조 그대로, 문제 부분만 연산으로
 import { call, currentUser, redirectResult, loginGoogle, loginKakao, loginGuest, loginEmail, signupEmail, resetPassword, logout, deleteMe, authErrorText, providerOf, KAKAO_ON } from './firebase.js';
-import { art, opArt, avatarBox, AVATAR_IDS } from './art.js';
+import { art, avatarBox, AVATAR_IDS } from './art.js';
 
 const $app = document.getElementById('app');
 const $tabbar = document.getElementById('tabbar');
@@ -646,7 +646,6 @@ function quizScreenHtml({ headLeft, headCenter, headRight, q, progress, watermar
       <div class="bars"><div class="progress"><div style="width:${progress}%"></div></div><div class="timebar"><div id="tbar"></div></div></div>
       <section class="q-card math-card" id="q-card">
         ${watermark ? `<div class="watermark" style="background-image:${watermarkUrl(store.nick)}"></div>` : ''}
-        <div class="q-card-art" id="q-art">${opArt(q.op)}</div>
         <div class="q-card-main" id="q-main">
           <span class="chip">${esc(S.opLabels[q.op])} · ${esc(S.levelLabels[q.level])}${q.multiplier > 1 ? ` <b class="mult">×${q.multiplier}</b>` : ''}</span>
           <p class="q-text math"><span class="num">${q.a}</span> <span class="sym">${esc(q.symbol)}</span> <span class="num">${q.b}</span> <span class="sym">=</span> <span class="qm">?</span></p>
@@ -670,7 +669,7 @@ function fitText(box, sel, max, min) {
   }
   set(Math.floor(best * 10) / 10);
 }
-/** 식(27 + 48 = ?)은 한 줄로 크게. 그림은 칸 오른쪽 위에 작게 (식과 겹치지 않음) */
+/** 식(27 + 48 = ?)은 한 줄로 크게 */
 function layoutQuestion() {
   const main = $app.querySelector('#q-main'), card = $app.querySelector('#q-card');
   if (!main || !card) return;
