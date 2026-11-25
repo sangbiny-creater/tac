@@ -993,11 +993,11 @@ body.secure #app { user-select: none; -webkit-user-select: none; }
 .option.num-opt small { left: 9px; top: 5px; font-size: 11px; }
 
 /* ===== 2026-11-25: 홈 버튼 8개 배치 (사용자 시안) — 문제 풀기를 위로, 아래에 연산 4칸 · 자리 수 3칸을 같은 높이로 =====
-   시안 치수(세로 1026 기준): 두 줄 모두 높이 98, 문제 풀기와 간격 8, 두 줄 간격 20, 아래 바와 간격 10. 안내 글 줄은 시안에 없어서 숨김 */
-.home .play-sub { display: none; }
+   시안 치수(세로 1026 기준): 두 줄 모두 높이 98, 문제 풀기와 간격 8, 두 줄 간격 20, 아래 바와 간격 10. 안내 글은 문제 풀기 아래 작은 한 줄 */
+.home .play-sub { margin: calc(4 * var(--u)) 0 0; font-size: max(11px, calc(12.5 * var(--u))); line-height: 1.3; white-space: nowrap; }
 .screen.home { padding-bottom: calc(8 * var(--u)); }
 .home .play-btn.play-img { margin-top: -8px; flex: none; }
-.home .op-toggles { margin-top: calc(7 * var(--u)); gap: calc(8 * var(--u)); }
+.home .op-toggles { margin-top: calc(5 * var(--u)); gap: calc(8 * var(--u)); }
 .home .op-tg { height: calc(80 * var(--u)); }
 .home .op-tg .op-ic { width: calc(36 * var(--u)); height: calc(36 * var(--u)); }
 .home .op-tg span { font-size: calc(18 * var(--u)); }
