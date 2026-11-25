@@ -167,7 +167,7 @@ export async function api(path, opts = {}) {
     return { week, thisWeek, lastWeek, list: snap.docs.map((d, i) => ({ rank: i + 1, nickname: d.data().nickname, score: d.data().score, correct_count: d.data().correct, total_time_ms: d.data().timeMs, finished_at: d.data().finishedAt, run_id: d.data().runId, level: d.data().level || 1, ops: d.data().ops || [] })) };
   }
 
-  if (p === '/settings' && method === 'GET') return { free_plays: '3', ...((await getDoc(doc(fs, 'settings', 'game'))).data() || {}) };
+  if (p === '/settings' && method === 'GET') return { free_plays: '0', ...((await getDoc(doc(fs, 'settings', 'game'))).data() || {}) };
   if (p === '/settings' && method === 'PUT') return call('adminSetSettings', opts.body);
 
   throw new Error('알 수 없는 요청: ' + path);

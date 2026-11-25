@@ -869,7 +869,7 @@ function finish(runId, tally) {
   setTabbar(true); $tabbar.querySelectorAll('a').forEach((a) => a.classList.remove('on'));
   const score = tally.score, correct = tally.correct;
   $app.innerHTML = finishHtml(runId, score, correct, tally.levelUp);
-  // 오늘 무료 도전(하루 3번)을 다 쓰면 '광고 보고 다시 도전', 그 전엔 그냥 '다시 도전' (광고 횟수 제한 없음)
+  // 하루 횟수 제한을 켠 경우에만(지금은 없음): 다 쓰면 '광고 보고 다시 도전', 그 전엔 그냥 '다시 도전' (광고 횟수 제한 없음)
   const retry = $app.querySelector('#retry');
   const paintRetry = () => { retry.innerHTML = CONFIG.needAd ? `<i>${UI.video}</i><span>광고 보고 다시 도전</span>` : `<i>${UI.retry}</i><span>다시 도전</span>`; };
   paintRetry();
